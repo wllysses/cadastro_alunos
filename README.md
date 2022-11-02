@@ -6,7 +6,7 @@
 
 ## Tecnologias utilizadas
 - HTML
-- CSS/SASS
+- SASS
 - Javascript
 - Lib Animate.css
 
