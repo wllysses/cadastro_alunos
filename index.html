@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Aluno</title>
+    <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="https://kit.fontawesome.com/8ff11ff9ec.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script type="module" src="./src/js/index.js" defer></script>
+</head>
+<body>
+    <main class="container animate__animated animate__fadeInDown">
+        <section class="formWrapper">
+            <h1>Cadastrar Aluno</h1>
+            <form>
+                <h4>Nome</h4>
+                <input type="text" placeholder="Nome do aluno" id="studentName">
+                <h4>Matrícula</h4>
+                <input type="text" placeholder="Matrícula do aluno" id="studentRegistration">
+                <h4>Nota 1</h4>
+                <input type="text" placeholder="Informe a nota 1" id="studentNote1">
+                <h4>Nota 2</h4>
+                <input type="text" placeholder="Informe a nota 2" id="studentNote2">
+                <h4>Nota 3</h4>
+                <input type="text" placeholder="Informe a nota 3" id="studentNote3">
+
+                <div class="buttons">
+                    <button type="submit">Cadastrar</button>
+                    <button type="reset">Limpar</button>
+                </div>
+            </form>
+        </section>
+        <section class="infoWrapper">
+            <div class="infoWrapperHeader">
+                <h2>Informações</h2>
+                <i class="fa-solid fa-trash deleteAll" style="cursor: pointer;" title="Apagar tudo"></i>
+            </div>
+            <table>
+                <tr>
+                    <th>Nome</th>
+                    <th>Matrícula</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Nota 3</th>
+                    <th>Média</th>
+                    <th>Excluir</th>
+                </tr>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
