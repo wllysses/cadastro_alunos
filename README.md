@@ -18,4 +18,7 @@ Rodando apenas o projeto
 Realizar alterações e melhorias
 - Abrir a pasta do projeto com o editor de código desejado (Ex: Vscode)
 - npm install (baixar as depêndencias do projeto)
-- Para realizar alterações no css utilizando o SASS é necessário instala-lo na máquina, navegar até a pasta do css (cd src/css/) executar o comando: ssass --watch style.scss style.css
+- Para realizar alterações no css utilizando o SASS é necessário instala-lo na máquina, navegar até a pasta do css (cd src/css/) executar o comando: sass --watch style.scss style.css
+
+##Deploy do projeto
+https://wllysses.github.io/cadastro_alunos/
