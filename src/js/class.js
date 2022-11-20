@@ -1,12 +1,10 @@
-class Student {
-    //attributes
+export default class Student {
     name;
     registration;
     note1;
     note2;
     note3;
 
-    //method constructor
     constructor(name, registration, note1, note2, note3) {
         this.name = name;
         this.registration = registration;
@@ -58,8 +56,6 @@ class Student {
 
     //action methods
     calculateAverage() {
-        return ((this.note1 + this.note2 + this.note3) / 3).toFixed(1)
+        return ((Number(this.note1) + Number(this.note2 )+ Number(this.note3)) / 3).toFixed(1)
     }
 }
-
-export { Student }

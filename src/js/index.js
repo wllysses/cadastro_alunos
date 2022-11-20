@@ -1,4 +1,4 @@
-import { Student } from '../js/class.js'
+import Student from '../js/class.js'
 
 const inputStudentName = document.getElementById('studentName')
 const inputStudentRegistration = document.getElementById('studentRegistration')
@@ -6,36 +6,53 @@ const inputStudentNote1 = (document.getElementById('studentNote1'))
 const inputStudentNote2 = document.getElementById('studentNote2')
 const inputStudentNote3 = document.getElementById('studentNote3')
 const studentForm = document.querySelector('form')
-const tableStudentInfo = document.querySelector('table')
-const btnDeleteAll = document.querySelector('.deleteAll')
+const tableStudentInfo = document.querySelector('.studentRegistryList')
+const btnDeleteAllStudents = document.querySelector('#deleteAllStudents')
 
-//instanciando o Objeto student da classe Student
-let student = new Student()
 
-//funções para cada ação
-function createStudent(objStudent) {
-    objStudent.setName(inputStudentName.value)
-    objStudent.setRegistration(inputStudentRegistration.value)
-    objStudent.setNote1(Number(inputStudentNote1.value))
-    objStudent.setNote2(Number(inputStudentNote2.value))
-    objStudent.setNote3(Number(inputStudentNote3.value))
+function createStudent() {
+    let student = new Student(inputStudentName.value, inputStudentRegistration.value, inputStudentNote1.value, inputStudentNote2.value, inputStudentNote3.value)
 
-    if (objStudent.getName() == '' || objStudent.getRegistration() == '' || objStudent.getNote1() == '' || objStudent.getNote2() == '' || objStudent.getNote3() == '') {
-        alert('Preencha todos os campos.')
-        return
-    }
 
-    tableStudentInfo.innerHTML += `
-                                        <tr class='listItem'>
-                                            <td id="name">${objStudent.getName()}</td>
-                                            <td id="registration">${objStudent.getRegistration()}</td>
-                                            <td id="note1">${objStudent.getNote1()}</td>
-                                            <td id="note2">${objStudent.getNote2()}</td>
-                                            <td id="note3">${objStudent.getNote3()}</td>
-                                            <td id="average">${objStudent.calculateAverage()}</td>
-                                            <td><i class="fa-solid fa-trash delete" style="cursor: pointer;" title="Apagar aluno"></i></td>
-                                        </tr>
-                                    `
+    const trElement = document.createElement('tr')
+    trElement.setAttribute('class', 'listItem')
+    tableStudentInfo.appendChild(trElement)
+
+    const tdElementName = document.createElement('td')
+    tdElementName.setAttribute('id', 'name')
+    tdElementName.innerText = student.getName()
+    trElement.appendChild(tdElementName)
+
+    const tdElementRegistration = document.createElement('td')
+    tdElementRegistration.setAttribute('id', 'registration')
+    tdElementRegistration.innerText = student.getRegistration()
+    trElement.appendChild(tdElementRegistration)
+
+    const tdElementNote1 = document.createElement('td')
+    tdElementNote1.setAttribute('id', 'note1')
+    tdElementNote1.innerText = student.getNote1()
+    trElement.appendChild(tdElementNote1)
+
+    const tdElementNote2 = document.createElement('td')
+    tdElementNote2.setAttribute('id', 'note2')
+    tdElementNote2.innerText = student.getNote2()
+    trElement.appendChild(tdElementNote2)
+
+    const tdElementNote3 = document.createElement('td')
+    tdElementNote3.setAttribute('id', 'note3')
+    tdElementNote3.innerText = student.getNote3()
+    trElement.appendChild(tdElementNote3)
+
+    const tdElementAverage = document.createElement('td')
+    tdElementAverage.setAttribute('id', 'average')
+    tdElementAverage.innerText = student.calculateAverage()
+    trElement.appendChild(tdElementAverage)
+
+    const tdElementBtnDeleteStudent = document.createElement('td')
+    tdElementBtnDeleteStudent.innerHTML = '<i class="fa-solid fa-trash delete" style="cursor: pointer;" title="Apagar aluno"></i>'
+    trElement.appendChild(tdElementBtnDeleteStudent)
+    
+
     deleteStudent()
 }
 
@@ -50,21 +67,18 @@ function deleteStudent() {
 }
 
 function deleteAllStudent() {
-    document.querySelectorAll('table .listItem').forEach(item => {
-        item.remove()
-    })
+    tableStudentInfo.innerHTML = ''
 }
 
-//evento para adicionar aluno
-studentForm.onsubmit = function (e) {
-    e.preventDefault()
+studentForm.onsubmit = function (event) {
+    event.preventDefault()
 
-    createStudent(student)
+    createStudent()
 }
 
-//evento para remover todos os alunos
-btnDeleteAll.onclick = function() {
-    if(confirm('Deseja realmente apagar todos os alunos?')) {
+btnDeleteAllStudents.onclick = function() {
+    let questionToUser = confirm('Deseja apagar todos os alunos?')
+    if(questionToUser) {
         deleteAllStudent()
     }
 }
