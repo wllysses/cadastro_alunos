@@ -51,18 +51,16 @@ function createStudent() {
     const tdElementBtnDeleteStudent = document.createElement('td')
     tdElementBtnDeleteStudent.innerHTML = '<i class="fa-solid fa-trash delete" style="cursor: pointer;" title="Apagar aluno"></i>'
     trElement.appendChild(tdElementBtnDeleteStudent)
-    
 
     deleteStudent()
 }
 
 function deleteStudent() {
-    const deleteButtons = document.querySelectorAll('i.delete')
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const elementToRemove = button.closest('tr')
-            elementToRemove.remove()
-        })
+    tableStudentInfo.addEventListener('click', (e) => {
+        const elementClicked = e.target
+        if(elementClicked.classList.contains('delete')) {
+            elementClicked.closest('tr').remove()
+        }
     })
 }
 
