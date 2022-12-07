@@ -54,7 +54,7 @@ export default class Student {
         this.note3 = note3
     }
 
-    //action methods
+    //calculate average method
     calculateAverage() {
         return ((Number(this.note1) + Number(this.note2 )+ Number(this.note3)) / 3).toFixed(1)
     }
